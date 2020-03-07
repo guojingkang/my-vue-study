@@ -1,18 +1,31 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Father>
+      <div  slot="slot-test" slot-scope="{ nickName }">
+        <children :value="nickName"/>
+      </div>
+    </Father>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Children from './components/children.vue';
+import Father from './components/father.vue';
 export default {
-  name: 'app',
+  name: 'app',  
   components: {
-    HelloWorld
-  }
+    Children,
+    Father
+  },
+  data() {
+    return {
+      options:[
+        {id:"1",name:"2"},
+        {id:"3",name:"4"}
+      ]
+    }
+  },
 }
 </script>
 
